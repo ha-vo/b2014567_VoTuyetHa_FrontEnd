@@ -1,10 +1,12 @@
 import createApiClient from "./api.service";
 class ContactService {
-    constructor(baseUrl = "/api/contacts") {
+    constructor(baseUrl = "/api/users") {
         this.api = createApiClient(baseUrl);
     }
     async getAll() {
-        return (await this.api.get("/")).data;
+        let a = (await this.api.get("/")).data
+        console.log(a)
+        return a;
     }
     async create(data) {
         return (await this.api.post("/", data)).data;
